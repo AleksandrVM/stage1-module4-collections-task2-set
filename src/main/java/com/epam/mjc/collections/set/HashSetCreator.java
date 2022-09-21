@@ -5,5 +5,19 @@ import java.util.List;
 
 public class HashSetCreator {
     public HashSet<Integer> createHashSet(List<Integer> sourceList) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (Integer integer : sourceList){
+            if (integer %2 != 0){
+                hashSet.add(integer);
+                hashSet.add(2 * integer);
+            }
+            else {
+                hashSet.add(integer);
+                while ((integer /= 2) > 0){
+                    hashSet.add(integer);
+                }
+            }
+        }
+        return hashSet;
     }
 }
